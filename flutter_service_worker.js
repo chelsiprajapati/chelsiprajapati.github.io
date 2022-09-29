@@ -3,11 +3,13 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "582596922d99c41221bcae33ea708e09",
+  "assets/AssetManifest.json": "94c8e36c468b8feb3a9cdeb4c7b6b952",
 "assets/assets/fonts/great_vibes/GreatVibes-Regular.ttf": "4bd0ed00ca8deac6c6706a092d9afd13",
 "assets/assets/fonts/montserrat/Montserrat-Bold.ttf": "1f023b349af1d79a72740f4cc881a310",
 "assets/assets/fonts/montserrat/Montserrat-ExtraBold.ttf": "bd8fb30c6473177cfb9a5544c9ad8fdb",
+"assets/assets/fonts/montserrat/Montserrat-Medium.ttf": "b3ba703c591edd4aad57f8f4561a287b",
 "assets/assets/fonts/montserrat/Montserrat-Regular.ttf": "3fe868a1a9930b59d94d2c1d79461e3c",
+"assets/assets/fonts/montserrat/Montserrat-SemiBold.ttf": "fb428a00b04d4e93deb4d7180814848b",
 "assets/assets/images/bride.jpg": "9946e183b42730ca221f5d57312c93c2",
 "assets/assets/images/dash.jpg": "62064556868cd3b0e8252e67f239c868",
 "assets/assets/images/dash1.jpg": "1bb8ded98239f9ffee64f93c09544822",
@@ -23,25 +25,26 @@ const RESOURCES = {
 "assets/assets/svg/love.svg": "d224a9289f48b8db6bac45ccd5e4de82",
 "assets/assets/svg/male.svg": "672278662f44cfaf792eea64ea66ed1d",
 "assets/assets/svg/twitter.svg": "823f1709743a442e28e58133377613b4",
-"assets/FontManifest.json": "87f93a044493638997cb09fc711644b3",
+"assets/FontManifest.json": "315554a03c103777ae4a6f7cff7fffb2",
 "assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
-"assets/NOTICES": "95ae22947783f4ea53b56e477c5626b7",
+"assets/NOTICES": "01d68d880d3f67ab49a83a4429357ca7",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/fluttertoast/assets/toastify.css": "a85675050054f179444bc5ad70ffc635",
 "assets/packages/fluttertoast/assets/toastify.js": "e7006a0a033d834ef9414d48db3be6fc",
-"canvaskit/canvaskit.js": "c2b4e5f3d7a3d82aed024e7249a78487",
-"canvaskit/canvaskit.wasm": "4b83d89d9fecbea8ca46f2f760c5a9ba",
-"canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
-"canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
+"assets/shaders/ink_sparkle.frag": "0cb0eece51b62d24563d8ff2e31f4ca1",
+"canvaskit/canvaskit.js": "2bc454a691c631b07a9307ac4ca47797",
+"canvaskit/canvaskit.wasm": "bf50631470eb967688cca13ee181af62",
+"canvaskit/profiling/canvaskit.js": "38164e5a72bdad0faa4ce740c9b8e564",
+"canvaskit/profiling/canvaskit.wasm": "95a45378b69e77af5ed2bc72b2209b94",
 "favicon.png": "fbe3d85a9f35f819d349f86a3e2ee223",
-"flutter.js": "eb2682e33f25cd8f1fc59011497c35f8",
+"flutter.js": "f85e6fb278b0fd20c349186fb46ae36d",
 "icons/Icon-192.png": "34c1a2470a16e89f47b6e22eb1615cd5",
 "icons/Icon-512.png": "8ac07d973b8f9d58e6efee80ca1a5f4b",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "c63a32d06f657fecba6b5fafeba22f29",
-"/": "c63a32d06f657fecba6b5fafeba22f29",
-"main.dart.js": "bddb941fd8f421ca360ee004e8bfe81f",
+"index.html": "c5ec9c136563d006ee9782ccb9528800",
+"/": "c5ec9c136563d006ee9782ccb9528800",
+"main.dart.js": "a926719f02c0b15b3a0afe80a4e12c1a",
 "manifest.json": "4734db19b089f1a4d7b37fdc9824bcd2",
 "version.json": "e995cedc6c83665a9c4cbe7541bbf600"
 };
@@ -51,7 +54,6 @@ const RESOURCES = {
 const CORE = [
   "main.dart.js",
 "index.html",
-"assets/NOTICES",
 "assets/AssetManifest.json",
 "assets/FontManifest.json"];
 // During install, the TEMP cache is populated with the application shell files.
@@ -150,9 +152,11 @@ self.addEventListener("fetch", (event) => {
     .then((cache) =>  {
       return cache.match(event.request).then((response) => {
         // Either respond with the cached resource, or perform a fetch and
-        // lazily populate the cache.
+        // lazily populate the cache only if the resource was successfully fetched.
         return response || fetch(event.request).then((response) => {
-          cache.put(event.request, response.clone());
+          if (response && Boolean(response.ok)) {
+            cache.put(event.request, response.clone());
+          }
           return response;
         });
       })
