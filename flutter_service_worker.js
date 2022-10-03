@@ -3,20 +3,13 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "94c8e36c468b8feb3a9cdeb4c7b6b952",
+  "assets/AssetManifest.json": "5ad96f8d67f761cda034f7ea9d975664",
 "assets/assets/fonts/great_vibes/GreatVibes-Regular.ttf": "4bd0ed00ca8deac6c6706a092d9afd13",
 "assets/assets/fonts/montserrat/Montserrat-Bold.ttf": "1f023b349af1d79a72740f4cc881a310",
 "assets/assets/fonts/montserrat/Montserrat-ExtraBold.ttf": "bd8fb30c6473177cfb9a5544c9ad8fdb",
 "assets/assets/fonts/montserrat/Montserrat-Medium.ttf": "b3ba703c591edd4aad57f8f4561a287b",
 "assets/assets/fonts/montserrat/Montserrat-Regular.ttf": "3fe868a1a9930b59d94d2c1d79461e3c",
 "assets/assets/fonts/montserrat/Montserrat-SemiBold.ttf": "fb428a00b04d4e93deb4d7180814848b",
-"assets/assets/images/bride.jpg": "9946e183b42730ca221f5d57312c93c2",
-"assets/assets/images/dash.jpg": "62064556868cd3b0e8252e67f239c868",
-"assets/assets/images/dash1.jpg": "1bb8ded98239f9ffee64f93c09544822",
-"assets/assets/images/dash2.jpg": "e052fde1f17cb79db2a60692acea9103",
-"assets/assets/images/dash3.jpg": "5dfd1131a4193365c5ba7a3cb4e47e9b",
-"assets/assets/images/dash4.jpg": "8ba1cdbc15b7f91bf00590edd45e96fa",
-"assets/assets/images/groom.jpg": "8ea3ce167baf4403b64ecc222953bfd8",
 "assets/assets/images/place_holder.png": "5f22c62422e39dbe2acf81a7752f25da",
 "assets/assets/svg/facebook.svg": "2eec7e87276c94cb779b0ab8383405b5",
 "assets/assets/svg/female.svg": "a7c665b781a3cebb0c27219194838ab4",
@@ -27,7 +20,7 @@ const RESOURCES = {
 "assets/assets/svg/twitter.svg": "823f1709743a442e28e58133377613b4",
 "assets/FontManifest.json": "315554a03c103777ae4a6f7cff7fffb2",
 "assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
-"assets/NOTICES": "f30081694e85482ccf217fe2dfc8d28c",
+"assets/NOTICES": "98e6850eeb5631f485db0bfbb72905b9",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/packages/fluttertoast/assets/toastify.css": "a85675050054f179444bc5ad70ffc635",
 "assets/packages/fluttertoast/assets/toastify.js": "e7006a0a033d834ef9414d48db3be6fc",
@@ -42,9 +35,9 @@ const RESOURCES = {
 "icons/Icon-512.png": "8ac07d973b8f9d58e6efee80ca1a5f4b",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "d871f241ac5abd75c43f78a99477da32",
-"/": "d871f241ac5abd75c43f78a99477da32",
-"main.dart.js": "e21f1cc1a62c89460d0e668e6727ae1e",
+"index.html": "b8b6fcc5b029359f18f436bf875620e2",
+"/": "b8b6fcc5b029359f18f436bf875620e2",
+"main.dart.js": "824c3eed886c70bef0204fca0990cf7d",
 "manifest.json": "4734db19b089f1a4d7b37fdc9824bcd2",
 "version.json": "e995cedc6c83665a9c4cbe7541bbf600"
 };
